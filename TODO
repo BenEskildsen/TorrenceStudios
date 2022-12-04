@@ -1,0 +1,20 @@
+
+  - images
+    - aggregate them
+    - experiment with serving images from dropbox
+
+
+  - deploy to droplet
+    - git repo
+    - dockerfile will move images to img/
+    - add to nginx
+    - set up https
+
+
+  - make README
+  - favicon
+  - add images
+  - record visits as a server side request
+
+  - clean up styles.css
+
