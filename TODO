@@ -1,21 +1,14 @@
 
-  - images
-    - aggregate them
-    - experiment with serving images from dropbox
-      - add them all to dropbox
-      - get links for all of them and put them in a config file
+  - pages:
+    - gallery page
+    - about page
 
-
-  - deploy to droplet
-    - git repo
-    - dockerfile will move images to img/
-    - add to nginx
-    - set up https
-
+  - mobile:
+    - allow scrolling
+    - only one image wide
 
   - make README
   - favicon
-  - add images
   - record visits as a server side request
 
   - clean up styles.css
