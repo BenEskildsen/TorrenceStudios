@@ -2,6 +2,8 @@
   - images
     - aggregate them
     - experiment with serving images from dropbox
+      - add them all to dropbox
+      - get links for all of them and put them in a config file
 
 
   - deploy to droplet

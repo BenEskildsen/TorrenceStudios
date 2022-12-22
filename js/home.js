@@ -1,9 +1,8 @@
 
-// const React = require('react');
-import React from 'react';
+import React, {useEffect, useState, useMemo} from 'react';
 import ReactDOM from 'react-dom/client';
 import {Button, TextField} from 'bens_ui_components';
-const {useEffect, useState, useMemo} = React;
+import imageURLs from './imageURLs';
 
 
 const Home = () => {
@@ -11,22 +10,23 @@ const Home = () => {
   return (
     <div
       style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
         width: '100%',
         height: '100%',
         backgroundColor: 'black',
-        color: '#6ce989',
       }}
     >
+      <div
+        style={{
+          textAlign: 'center',
+          color: 'navajowhite',
+          fontFamily: 'cursive',
+        }}
+      >
+        <h1>Torrence Studios</h1>
+        <h3>Crafted by Rick Eskildsen</h3>
+      </div>
       <PhotoScroller
-        imgSrcs={[
-          "img/Torrence1.png",
-          "img/Torrence2.png",
-          "img/Torrence3.png",
-          "img/Torrence4.png",
-        ]}
+        imgSrcs={Object.values(imageURLs)}
       />
     </div>
   );

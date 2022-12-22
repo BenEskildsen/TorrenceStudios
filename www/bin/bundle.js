@@ -36453,12 +36453,11 @@ var _client2 = _interopRequireDefault(_client);
 
 var _bens_ui_components = require('bens_ui_components');
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _imageURLs = require('./imageURLs');
 
-var useEffect = _react2.default.useEffect,
-    useState = _react2.default.useState,
-    useMemo = _react2.default.useMemo;
-// const React = require('react');
+var _imageURLs2 = _interopRequireDefault(_imageURLs);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Home = function Home() {
 
@@ -36466,17 +36465,33 @@ var Home = function Home() {
     'div',
     {
       style: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
         width: '100%',
         height: '100%',
-        backgroundColor: 'black',
-        color: '#6ce989'
+        backgroundColor: 'black'
       }
     },
+    _react2.default.createElement(
+      'div',
+      {
+        style: {
+          textAlign: 'center',
+          color: 'navajowhite',
+          fontFamily: 'cursive'
+        }
+      },
+      _react2.default.createElement(
+        'h1',
+        null,
+        'Torrence Studios'
+      ),
+      _react2.default.createElement(
+        'h3',
+        null,
+        'Crafted by Rick Eskildsen'
+      )
+    ),
     _react2.default.createElement(PhotoScroller, {
-      imgSrcs: ["img/Torrence1.png", "img/Torrence2.png", "img/Torrence3.png", "img/Torrence4.png"]
+      imgSrcs: Object.values(_imageURLs2.default)
     })
   );
 };
@@ -36484,6 +36499,7 @@ var Home = function Home() {
 var PhotoScroller = function PhotoScroller(props) {
   var imgSrcs = props.imgSrcs;
 
+  console.log(imgSrcs);
 
   var imgs = [];
   var _iteratorNormalCompletion = true;
@@ -36532,4 +36548,39 @@ var PhotoScroller = function PhotoScroller(props) {
 
 var root = _client2.default.createRoot(document.getElementById('container'));
 root.render(_react2.default.createElement(Home, null));
-},{"bens_ui_components":19,"react":34,"react-dom/client":30}]},{},[39]);
+},{"./imageURLs":40,"bens_ui_components":19,"react":34,"react-dom/client":30}],40:[function(require,module,exports){
+"use strict";
+
+module.exports = {
+  libraryInTheBushes: "https://www.dropbox.com/s/0rishz3gaulcae1/Torrence1.png?raw=1",
+  standingNextToLibrary: "https://www.dropbox.com/s/9elvevc0i5btsb7/Torrence2.png?raw=1",
+  thumbsUpNextToLibrary: "https://www.dropbox.com/s/aw6b058f4eziofu/Torrence3.png?raw=1",
+  funShelf1: "https://www.dropbox.com/s/4j0dn8n8qz3n4ec/Torrence4.png?raw=1",
+  libraryInAYard: "https://www.dropbox.com/s/v84oiydyrydn13u/Torrence%20Studios%20-%2029%20of%2029.png?raw=1",
+  standupShelfUnderConstruction: "https://www.dropbox.com/s/1dv8u4gcgq9qnfg/Torrence%20Studios%20-%2027%20of%2029.png?raw=1",
+  standupShelf: "https://www.dropbox.com/s/tycddzvy2pe3jlu/Torrence%20Studios%20-%2028%20of%2029.png?raw=1",
+  shelfUnderConstruction1: "https://www.dropbox.com/s/lgaiisqtui03vqo/Torrence%20Studios%20-%206%20of%2029.png?raw=1",
+  shelfUnderConstruction2: "https://www.dropbox.com/s/q0qyn61i9scqiw7/Torrence%20Studios%20-%207%20of%2029.png?raw=1",
+  shelfUnderConstruction3: "https://www.dropbox.com/s/y1x9uquoy5wybl2/Torrence%20Studios%20-%2013%20of%2029.png?raw=1",
+  tinyShipUnderConstruction: "https://www.dropbox.com/s/i1zzxzb6czyfr8z/Torrence%20Studios%20-%2025%20of%2029.png?raw=1",
+  tinyShip: "https://www.dropbox.com/s/vpufr7uv0t3e7lc/Torrence%20Studios%20-%2026%20of%2029.png?raw=1",
+  libraryInTheBushes2: "https://www.dropbox.com/s/lpzhz7fj4v4ouos/Torrence%20Studios%20-%2024%20of%2029.png?raw=1",
+  libraryInTheBushes3: "https://www.dropbox.com/s/8ww3ipf58on2ngw/Torrence%20Studios%20-%2018%20of%2029.png?raw=1",
+  sideTables1: "https://www.dropbox.com/s/xxgy49g6mk5q5e2/Torrence%20Studios%20-%2023%20of%2029.png?raw=1",
+  sideTables2: "https://www.dropbox.com/s/uirsbmg8hgf080s/Torrence%20Studios%20-%2022%20of%2029.png?raw=1",
+  dinnerTableUnderConstruction1: "https://www.dropbox.com/s/uyhjb2kt7f34zzf/Torrence%20Studios%20-%2014%20of%2029.png?raw=1",
+  dinnerTableUnderConstruction2: "https://www.dropbox.com/s/pdeghgxdefl4oqr/Torrence%20Studios%20-%2015%20of%2029.png?raw=1",
+  dinnerTableUnderConstruction3: "https://www.dropbox.com/s/0fjb7nycsxyijol/Torrence%20Studios%20-%2017%20of%2029.png?raw=1",
+  dinnerTable1: "https://www.dropbox.com/s/j6mnon2d9aqwycv/Torrence%20Studios%20-%2020%20of%2029.png?raw=1",
+  dinnerTable2: "https://www.dropbox.com/s/at79vpema0035i3/Torrence%20Studios%20-%2019%20of%2029.png?raw=1",
+  schoolLibraryUnderConstruction1: "https://www.dropbox.com/s/jixbcauklols02d/Torrence%20Studios%20-%208%20of%2029.png?raw=1",
+  schoolLibraryUnderConstruction2: "https://www.dropbox.com/s/p7n9whufzkca4gl/Torrence%20Studios%20-%209%20of%2029.png?raw=1",
+  schoolLibraryUnderConstruction3: "https://www.dropbox.com/s/lfdipopf8ivauu3/Torrence%20Studios%20-%205%20of%2029.png?raw=1",
+  schoolLibraryUnderConstruction4: "https://www.dropbox.com/s/770dy6z8gfuheut/Torrence%20Studios%20-%204%20of%2029.png?raw=1",
+  schoolLittleLibrary1: "https://www.dropbox.com/s/pbh35409l5fq7ax/Torrence%20Studios%20-%2012%20of%2029.png?raw=1",
+  birdBox: "https://www.dropbox.com/s/pvwdf12zztbgmkf/Torrence%20Studios%20-%2010%20of%2029.png?raw=1",
+  coffeeTable: "https://www.dropbox.com/s/pqdqdxqjwu86bp8/Torrence%20Studios%20-%203%20of%2029.png?raw=1",
+  cuttingTable1: "https://www.dropbox.com/s/d87ilqgdlzn09an/Torrence%20Studios%20-%202%20of%2029.png?raw=1",
+  cuttingTable2: "https://www.dropbox.com/s/4p3wk1qmoy1sbkz/Torrence%20Studios%20-%201%20of%2029.png?raw=1"
+};
+},{}]},{},[39]);
