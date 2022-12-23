@@ -28,5 +28,6 @@ module.exports = {
   birdBox: "https://www.dropbox.com/s/pvwdf12zztbgmkf/Torrence%20Studios%20-%2010%20of%2029.png?raw=1",
   coffeeTable: "https://www.dropbox.com/s/pqdqdxqjwu86bp8/Torrence%20Studios%20-%203%20of%2029.png?raw=1",
   cuttingTable1: "https://www.dropbox.com/s/d87ilqgdlzn09an/Torrence%20Studios%20-%202%20of%2029.png?raw=1",
-  cuttingTable2: "https://www.dropbox.com/s/4p3wk1qmoy1sbkz/Torrence%20Studios%20-%201%20of%2029.png?raw=1",
+  // cuttingTable2: "https://www.dropbox.com/s/4p3wk1qmoy1sbkz/Torrence%20Studios%20-%201%20of%2029.png?raw=1",
+  catherineLibrary: "https://www.dropbox.com/s/2x1878y67ft7ech/Screen%20Shot%202022-12-23%20at%2012.15.14%20PM.png?raw=1",
 };

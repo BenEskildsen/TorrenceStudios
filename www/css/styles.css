@@ -1,5 +1,5 @@
 html {
-  touch-action: none;
+  /* touch-action: none; */
 }
 
 body {
@@ -9,7 +9,7 @@ body {
   position: fixed;
   width: 100%;
   height: 100%;
-  touch-action: none;
+  /* touch-action: none; */
 }
 
 /* include border and padding in element width and height */
@@ -20,12 +20,12 @@ body {
 .container {
   width: 100%;
   height: 100%;
-  overflow: scroll;
+  /* overflow: scroll; */
   position: relative;
   margin: auto;
   font-family: "Courier New", sans-serif;
   font-weight: 300;
-  touch-action: none;
+  /* touch-action: none; */
 }
 
 h1 {

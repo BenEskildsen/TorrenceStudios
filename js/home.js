@@ -2,62 +2,89 @@
 import React, {useEffect, useState, useMemo} from 'react';
 import ReactDOM from 'react-dom/client';
 import {Button, TextField} from 'bens_ui_components';
+import PhotoScroller from './PhotoScroller.react';
 import imageURLs from './imageURLs';
 
 
 const Home = () => {
+
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const handleScroll = () => {
+    const container = document.getElementById('photoscroller');
+    const position = container.scrollTop;
+    setScrollPosition(position);
+  };
+  useEffect(() => {
+    const container = document.getElementById('photoscroller');
+    container.addEventListener('scroll', handleScroll, false);
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div
       style={{
         width: '100%',
         height: '100%',
-        backgroundColor: 'black',
+        backgroundColor: 'white',
       }}
     >
-      <div
-        style={{
-          textAlign: 'center',
-          color: 'navajowhite',
-          fontFamily: 'cursive',
-        }}
-      >
-        <h1>Torrence Studios</h1>
-        <h3>Crafted by Rick Eskildsen</h3>
-      </div>
+      <TopBar scrollPosition={scrollPosition} />
       <PhotoScroller
+        scrollPosition={scrollPosition}
         imgSrcs={Object.values(imageURLs)}
       />
     </div>
   );
 };
 
-const PhotoScroller = (props) => {
-  const {imgSrcs} = props;
+const TopBar = (props) => {
+  const {scrollPosition} = props;
 
-  const imgs = [];
-  for (const src of imgSrcs) {
-    imgs.push(<img key={"img_" + src}
-      src={src}
+  const smallTopBar = (
+    <div
       style={{
-        width: '50%',
+        position: 'absolute',
+        top: 0,
+        textAlign: 'center',
+        color: 'black',
+        backgroundColor: 'white',
+        paddingTop: 5,
+        paddingBottom: 6,
+        width: '100%',
       }}
-    />);
+    >
+      <img
+        height={40}
+        src='saw.png'
+      />
+    </div>
+  );
+
+  if (scrollPosition > 240) {
+    return smallTopBar;
   }
 
   return (
     <div
       style={{
-        display: 'flex',
-        flexWrap: 'wrap',
+        textAlign: 'center',
+        color: 'black',
+        fontFamily: 'cursive',
+        position: 'absolute',
+        backgroundColor: 'white',
         width: '100%',
-        height: '100%',
+        pointerEvents: 'none',
       }}
     >
-      {imgs}
+      <img
+        height={200}
+        src='croppedStudio.png'
+      />
+      <h3>Crafted by Rick Eskildsen</h3>
     </div>
   );
 }
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('container'));

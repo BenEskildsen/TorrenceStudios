@@ -36447,59 +36447,12 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _client = require('react-dom/client');
-
-var _client2 = _interopRequireDefault(_client);
-
-var _bens_ui_components = require('bens_ui_components');
-
-var _imageURLs = require('./imageURLs');
-
-var _imageURLs2 = _interopRequireDefault(_imageURLs);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Home = function Home() {
-
-  return _react2.default.createElement(
-    'div',
-    {
-      style: {
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'black'
-      }
-    },
-    _react2.default.createElement(
-      'div',
-      {
-        style: {
-          textAlign: 'center',
-          color: 'navajowhite',
-          fontFamily: 'cursive'
-        }
-      },
-      _react2.default.createElement(
-        'h1',
-        null,
-        'Torrence Studios'
-      ),
-      _react2.default.createElement(
-        'h3',
-        null,
-        'Crafted by Rick Eskildsen'
-      )
-    ),
-    _react2.default.createElement(PhotoScroller, {
-      imgSrcs: Object.values(_imageURLs2.default)
-    })
-  );
-};
-
 var PhotoScroller = function PhotoScroller(props) {
-  var imgSrcs = props.imgSrcs;
+  var imgSrcs = props.imgSrcs,
+      scrollPosition = props.scrollPosition;
 
-  console.log(imgSrcs);
 
   var imgs = [];
   var _iteratorNormalCompletion = true;
@@ -36513,7 +36466,7 @@ var PhotoScroller = function PhotoScroller(props) {
       imgs.push(_react2.default.createElement('img', { key: "img_" + src,
         src: src,
         style: {
-          width: '50%'
+          width: window.innerWidth < 600 ? '100%' : '50%'
         }
       }));
     }
@@ -36535,20 +36488,138 @@ var PhotoScroller = function PhotoScroller(props) {
   return _react2.default.createElement(
     'div',
     {
+      id: 'photoscroller',
       style: {
+        overflow: 'scroll',
         display: 'flex',
         flexWrap: 'wrap',
         width: '100%',
-        height: '100%'
+        height: '100%',
+        paddingTop: 240
       }
     },
     imgs
   );
 };
 
+module.exports = PhotoScroller;
+},{"react":34}],40:[function(require,module,exports){
+'use strict';
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _client = require('react-dom/client');
+
+var _client2 = _interopRequireDefault(_client);
+
+var _bens_ui_components = require('bens_ui_components');
+
+var _PhotoScroller = require('./PhotoScroller.react');
+
+var _PhotoScroller2 = _interopRequireDefault(_PhotoScroller);
+
+var _imageURLs = require('./imageURLs');
+
+var _imageURLs2 = _interopRequireDefault(_imageURLs);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Home = function Home() {
+  var _useState = (0, _react.useState)(0),
+      _useState2 = _slicedToArray(_useState, 2),
+      scrollPosition = _useState2[0],
+      setScrollPosition = _useState2[1];
+
+  var handleScroll = function handleScroll() {
+    var container = document.getElementById('photoscroller');
+    var position = container.scrollTop;
+    setScrollPosition(position);
+  };
+  (0, _react.useEffect)(function () {
+    var container = document.getElementById('photoscroller');
+    container.addEventListener('scroll', handleScroll, false);
+    return function () {
+      return container.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  return _react2.default.createElement(
+    'div',
+    {
+      style: {
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'white'
+      }
+    },
+    _react2.default.createElement(TopBar, { scrollPosition: scrollPosition }),
+    _react2.default.createElement(_PhotoScroller2.default, {
+      scrollPosition: scrollPosition,
+      imgSrcs: Object.values(_imageURLs2.default)
+    })
+  );
+};
+
+var TopBar = function TopBar(props) {
+  var scrollPosition = props.scrollPosition;
+
+
+  var smallTopBar = _react2.default.createElement(
+    'div',
+    {
+      style: {
+        position: 'absolute',
+        top: 0,
+        textAlign: 'center',
+        color: 'black',
+        backgroundColor: 'white',
+        paddingTop: 5,
+        paddingBottom: 6,
+        width: '100%'
+      }
+    },
+    _react2.default.createElement('img', {
+      height: 40,
+      src: 'saw.png'
+    })
+  );
+
+  if (scrollPosition > 240) {
+    return smallTopBar;
+  }
+
+  return _react2.default.createElement(
+    'div',
+    {
+      style: {
+        textAlign: 'center',
+        color: 'black',
+        fontFamily: 'cursive',
+        position: 'absolute',
+        backgroundColor: 'white',
+        width: '100%',
+        pointerEvents: 'none'
+      }
+    },
+    _react2.default.createElement('img', {
+      height: 200,
+      src: 'croppedStudio.png'
+    }),
+    _react2.default.createElement(
+      'h3',
+      null,
+      'Crafted by Rick Eskildsen'
+    )
+  );
+};
+
 var root = _client2.default.createRoot(document.getElementById('container'));
 root.render(_react2.default.createElement(Home, null));
-},{"./imageURLs":40,"bens_ui_components":19,"react":34,"react-dom/client":30}],40:[function(require,module,exports){
+},{"./PhotoScroller.react":39,"./imageURLs":41,"bens_ui_components":19,"react":34,"react-dom/client":30}],41:[function(require,module,exports){
 "use strict";
 
 module.exports = {
@@ -36581,6 +36652,7 @@ module.exports = {
   birdBox: "https://www.dropbox.com/s/pvwdf12zztbgmkf/Torrence%20Studios%20-%2010%20of%2029.png?raw=1",
   coffeeTable: "https://www.dropbox.com/s/pqdqdxqjwu86bp8/Torrence%20Studios%20-%203%20of%2029.png?raw=1",
   cuttingTable1: "https://www.dropbox.com/s/d87ilqgdlzn09an/Torrence%20Studios%20-%202%20of%2029.png?raw=1",
-  cuttingTable2: "https://www.dropbox.com/s/4p3wk1qmoy1sbkz/Torrence%20Studios%20-%201%20of%2029.png?raw=1"
+  // cuttingTable2: "https://www.dropbox.com/s/4p3wk1qmoy1sbkz/Torrence%20Studios%20-%201%20of%2029.png?raw=1",
+  catherineLibrary: "https://www.dropbox.com/s/2x1878y67ft7ech/Screen%20Shot%202022-12-23%20at%2012.15.14%20PM.png?raw=1"
 };
-},{}]},{},[39]);
+},{}]},{},[40]);
