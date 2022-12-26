@@ -4,9 +4,14 @@ import ReactDOM from 'react-dom/client';
 import {Button, TextField} from 'bens_ui_components';
 import PhotoScroller from './PhotoScroller.react';
 import imageURLs from './imageURLs';
+import postVisit from './postVisit';
 
 
 const Home = () => {
+
+  useEffect(() => {
+    postVisit('home', 'GET');
+  }, []);
 
   const [scrollPosition, setScrollPosition] = useState(0);
   const handleScroll = () => {
